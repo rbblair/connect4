@@ -1,0 +1,24 @@
+﻿Requirements:
+
+-6x6 grid
+-X and O characters can be placed on the grid
+-There is "gravity"-- you can pick the column to drop the character in, it drops to the lowest unoccupied spot
+-When you get 4 in a row diagonally, horizontally, or vertically, you win
+-There is a tie if you can no longer put more Xs or Os and no winner
+-Option to play again
+-Keeps track of score 
+-Option for best out of 3 or 5 rounds?
+ 
+ --- --- --- --- --- ---
+|   |   |   |   |   |   |
+ --- --- --- --- --- ---
+|   |   |   |   |   |   |
+ --- --- --- --- --- ---
+|   |   |   |   |   |   |
+ --- --- --- --- --- ---
+|   |   |   |   |   |   |
+ --- --- --- --- --- ---
+|   |   |   |   |   |   |
+ --- --- --- --- --- ---
+|   |   |   |   |   |   |
+ --- --- --- --- --- ---
