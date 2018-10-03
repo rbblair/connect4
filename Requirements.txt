@@ -9,7 +9,7 @@
 -Keyboard functionality? (arrow keys + Z?)
 -Option to play again
  
-    ASCII CONNECT FOUR
+      CONNECT FOUR
  --- --- --- --- --- ---
 |   |   |   |   |   |   |
  --- --- --- --- --- ---
