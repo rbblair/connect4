@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace connect4
 {
+    public struct playerInfo
+    {
+        public String playerName;
+        public char playerID;
+    }
     public class Game
     {
+        playerInfo playerOne = new playerInfo();
+        playerInfo playerTwo = new playerInfo();
+
         private int[,] grid;
         public int[,] Grid { get { return grid; } set { grid = value; } }
 
@@ -20,28 +28,26 @@ namespace connect4
             //out of range exception so should be checked seperately.
             //-1 for empty 1 for X and 0 for O;
             throw new NotImplementedException();
-            //xolani
-
         }
 
-        public void IsThereWinner(out char winner)
+        static void IsthereWinner(char[,] board, playerInfo activePlayer, int dropChoice)
         {
-            //need to check on lines colomns and diagonals
-            // lines should be (for i=0 to 1)
-            //                  for j=0to 5
-            //grid[i,j]==grid[i+1,j]==grid[i+2,j]==grid[i+3,j]==grid[i+4,j] and grid[i,j]==X
-            //then Winner='X'
-            //else  // lines should be (for i=0 to 1)
+            int length, turn;
+            length = 6;
+            turn = 0;
 
-            //                  for j=0to 5
-            //grid[i,j]==grid[i+1,j]==grid[i+2,j]==grid[i+3,j]==grid[i+4,j] and grid[i,j]==O
-            //then winner='O'
-            //else
-            //'N';
-            //should be the same for colomns just swap i and j!
-            //should check the same for diagonals(carefull with the range!)
-            throw new NotImplementedException();
+            do
+            {
+                if (board[length, dropChoice] != 'X' && board[length, dropChoice] != 'O')
+                {
+                    board[length, dropChoice] = activePlayer.playerID;
+                    turn = 1;
+                }
+                else
+                    --length;
+            } while (turn != 1);
         }
+
         public bool IsTie()
         {
             //Tie is when there is no place for placing X nd O
