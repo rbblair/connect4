@@ -8,10 +8,34 @@ namespace connect4
 {
     public class Game
     {
-        private int[,] grid;
-        public int[,] Grid { get { return grid; } set { grid = value; } }
+		public static char[,] Grid = new char[13, 13] 
+			{ 
+				//Rows/Columns 1, 3, 5, 7, 9, and 11 have the empty slots for player X/O ([1,1], [1,3], [1,5] etc)
+				{'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+				{'|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|'},
+				{'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+				{'|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|'},
+				{'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+				{'|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|'},
+				{'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+				{'|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|'},
+				{'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+				{'|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|'},
+				{'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
+				{'|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|', ' ', '|'},
+				{'-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-'}
+			};
 
-        public void placeXO(char XO,int colomn)
+		public void instructions()
+		{
+			Console.WriteLine("CONNECT FOUR");
+			Console.WriteLine("To play Connect 4, you must drop a token (X or O depending on player) into the empty slots.");
+			Console.WriteLine("Whoever gets 4 in a row vertically, horizontally, or diagonally wins.");
+
+
+		}
+
+		public void placeXO(char XO,int colomn)
         {
             //char would be altered in the main program depending on the player
             //so after one plays there would be char variable x=X; and later x=O;
@@ -61,16 +85,42 @@ namespace connect4
             //here just needs to make grid array -1 again;
         }
 
-        public Game()
-        {
-            grid = new int[6, 6];
-            for (int i = 0; i < 6; i++)
-            {
-                for (int j = 0; j < 6; j++)
-                {
-                    grid[i, j] = -1;
-                }
-            }
-        }
-    }
+
+		public static void PrintBoard(char[,] grid)
+		{
+			//Prints out the board in this format: 
+			//	CONNECT FOUR
+			// _____________
+			// | | | | | | |
+			// -------------
+			// | | | | | | |
+			// -------------
+			// | | | | | | |
+			// -------------
+			// | | | | | | |
+			// -------------
+			// | | | | | | |
+			// -------------
+			// | | | | | | |
+			// -------------
+
+
+			int rows = 13, columns = 13, x, y;
+			Console.WriteLine("CONNECT FOUR \n");
+			for (x = 0; x < columns; x++)
+			{ 
+				for (y = 0; y < rows; y++)
+				{
+					Console.Write(grid[x, y]);
+				}
+				Console.WriteLine();
+			}
+		}
+
+		static void Main(string[] args)
+		{
+			PrintBoard(Game.Grid);
+			Console.ReadKey();
+		}
+	}
 }
