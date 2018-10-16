@@ -44,11 +44,8 @@ namespace connect4
             //out of range exception so should be checked seperately.
             //-1 for empty 1 for X and 0 for O;
             throw new NotImplementedException();
-            //xolani
-
         }
 
-        public void IsThereWinner(out char winner)
         {
             //need to check on lines colomns and diagonals
             // lines should be (for i=0 to 1)
