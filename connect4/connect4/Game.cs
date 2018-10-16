@@ -53,14 +53,53 @@ namespace connect4
 			//we put X or O in the previous cell (carefull with grid[0,0],grid[1,0],grid[2,0]...grid[6,0]) can make
 			//out of range exception so should be checked seperately.
 			//-1 for empty 1 for X and 0 for O;
-
-			for (int i = 12; i >= 0; i--)
+			bool done = false;
+			while (!done)
 			{
-				if (i % 2 != 0)
+				for (int i = 11; i >= 1; i--)
 				{
-					if (Game.Grid[i, column] != ' ')
+					if (i % 2 != 0)
 					{
-						Game.Grid[i, column] = XO;
+						if (Game.Grid[i, column] == ' ')
+						{
+							switch (column)
+							{
+								case 1:
+									Game.Grid[i, 1] = XO;
+									done = true;
+									break;
+								case 2:
+									Game.Grid[i, 3] = XO;
+									done = true;
+									break;
+								case 3:
+									Game.Grid[i, 5] = XO;
+									done = true;
+									break;
+								case 4:
+									Game.Grid[i, 7] = XO;
+									done = true;
+									break;
+								case 5:
+									Game.Grid[i, 9] = XO;
+									done = true;
+									break;
+								case 6:
+									Game.Grid[i, 11] = XO;
+									done = true;
+									break;
+								default:
+									break;
+							}
+							if (done)
+							{
+								break;
+							}
+						}
+						if (done)
+						{
+							break;
+						}
 					}
 				}
 			}
@@ -69,14 +108,16 @@ namespace connect4
 
 		static void PlayerTurn(int playerNum, char XO)
 		{
-			int choice = 0;
+			int choice;
 			PrintBoard(Game.Grid);
 			Console.WriteLine("Player " + playerNum + "'s turn!");
-			Console.WriteLine("Which column would you like to put your token in?");
-			while (choice < 7 && choice > 0)
-			{
-				choice = int.Parse(Console.ReadLine());
-			}
+			Console.WriteLine("Which column would you like to put your token in? (1-6)");
+			choice = int.Parse(Console.ReadLine());
+			//while (choice < 7 || choice > 0)
+			//{
+			//	Console.WriteLine("Please choose a number between 1-6.");
+			//	choice = int.Parse(Console.ReadLine());
+			//}
 			placeXO(XO, choice);
 			Console.Clear();
 			PrintBoard(Game.Grid);
