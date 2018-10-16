@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "connect4", "connect4\connect4.csproj", "{D78A15A4-1097-4C26-ADB6-BEC1865E915E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "connect4Tests2", "connect4Tests2\connect4Tests2.csproj", "{A06EFCFD-A3C6-4124-9C2D-4327ABE6CC29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{D78A15A4-1097-4C26-ADB6-BEC1865E915E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D78A15A4-1097-4C26-ADB6-BEC1865E915E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D78A15A4-1097-4C26-ADB6-BEC1865E915E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A06EFCFD-A3C6-4124-9C2D-4327ABE6CC29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A06EFCFD-A3C6-4124-9C2D-4327ABE6CC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A06EFCFD-A3C6-4124-9C2D-4327ABE6CC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A06EFCFD-A3C6-4124-9C2D-4327ABE6CC29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C86D2D22-0859-4120-902C-EC920C93F4B0}
 	EndGlobalSection
 EndGlobal
