@@ -7,7 +7,16 @@ using System.Threading.Tasks;
 namespace connect4
 {
     public class Game
+	{
+		public String playerName;
+		public char playerID;
+	}
+
+
     {
+		playerInfo playerOne = new playerInfo();
+		playerInfo playerTwo = new playerInfo();
+
 		public static char[,] Grid = new char[13, 13] 
 			{ 
 				//Rows/Columns 1, 3, 5, 7, 9, and 11 have the empty slots for player X/O ([1,1], [1,3], [1,5] etc)
@@ -27,11 +36,13 @@ namespace connect4
 			};
 
 		public void instructions()
+		public void Instructions()
 		{
 			Console.WriteLine("CONNECT FOUR");
 			Console.WriteLine("To play Connect 4, you must drop a token (X or O depending on player) into the empty slots.");
 			Console.WriteLine("Whoever gets 4 in a row vertically, horizontally, or diagonally wins.");
-
+			Console.WriteLine("Ready to play? Y/N");
+			
 
 		}
 
@@ -44,26 +55,44 @@ namespace connect4
             //out of range exception so should be checked seperately.
             //-1 for empty 1 for X and 0 for O;
             throw new NotImplementedException();
+
+
         }
 
-        {
-            //need to check on lines colomns and diagonals
-            // lines should be (for i=0 to 1)
-            //                  for j=0to 5
-            //grid[i,j]==grid[i+1,j]==grid[i+2,j]==grid[i+3,j]==grid[i+4,j] and grid[i,j]==X
-            //then Winner='X'
-            //else  // lines should be (for i=0 to 1)
+		public void IsThereWinner(out char winner)
 
-            //                  for j=0to 5
-            //grid[i,j]==grid[i+1,j]==grid[i+2,j]==grid[i+3,j]==grid[i+4,j] and grid[i,j]==O
-            //then winner='O'
-            //else
-            //'N';
-            //should be the same for colomns just swap i and j!
-            //should check the same for diagonals(carefull with the range!)
-            throw new NotImplementedException();
-        }
-        public bool IsTie()
+		static void IsthereWinner(char[,] board, playerInfo activePlayer, int dropChoice)
+		{
+			//need to check on lines colomns and diagonals
+			// lines should be (for i=0 to 1)
+			//                  for j=0to 5
+			//grid[i,j]==grid[i+1,j]==grid[i+2,j]==grid[i+3,j]==grid[i+4,j] and grid[i,j]==X
+			//then Winner='X'
+			//else  // lines should be (for i=0 to 1)
+			int length, turn;
+			length = 6;
+			turn = 0;
+
+			//                  for j=0to 5
+			//grid[i,j]==grid[i+1,j]==grid[i+2,j]==grid[i+3,j]==grid[i+4,j] and grid[i,j]==O
+			//then winner='O'
+			//else
+			//'N';
+			//should be the same for colomns just swap i and j!
+			//should check the same for diagonals(carefull with the range!)
+			throw new NotImplementedException();
+			do
+			{
+				if (board[length, dropChoice] != 'X' && board[length, dropChoice] != 'O')
+				{
+					board[length, dropChoice] = activePlayer.playerID;
+					turn = 1;
+				}
+				else
+					--length;
+			} while (turn != 1);
+		}
+		public bool IsTie()
         {
             //Tie is when there is no place for placing X nd O
             //means we need to check if the last row has -1 or not
@@ -116,6 +145,7 @@ namespace connect4
 
 		static void Main(string[] args)
 		{
+			Instructions();
 			PrintBoard(Game.Grid);
 			Console.ReadKey();
 		}

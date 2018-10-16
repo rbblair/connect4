@@ -1,4 +1,5 @@
 D:\rayne\connect4\connect4\connect4\bin\Debug\connect4.exe.config
+<<<<<<< HEAD
 D:\Rayne\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.csprojAssemblyReference.cache
 D:\Rayne\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.csproj.CoreCompileInputs.cache
 D:\Rayne\Documents\GitHub\connect4\connect4\connect4\bin\Debug\connect4.exe.config
@@ -6,3 +7,12 @@ D:\Rayne\Documents\GitHub\connect4\connect4\connect4\bin\Debug\connect4.exe
 D:\Rayne\Documents\GitHub\connect4\connect4\connect4\bin\Debug\connect4.pdb
 D:\Rayne\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.exe
 D:\Rayne\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.pdb
+=======
+C:\Users\Nhlap\Documents\GitHub\connect4\connect4\connect4\bin\Debug\connect4.exe.config
+C:\Users\Nhlap\Documents\GitHub\connect4\connect4\connect4\bin\Debug\connect4.exe
+C:\Users\Nhlap\Documents\GitHub\connect4\connect4\connect4\bin\Debug\connect4.pdb
+C:\Users\Nhlap\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.csprojResolveAssemblyReference.cache
+C:\Users\Nhlap\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.csproj.CoreCompileInputs.cache
+C:\Users\Nhlap\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.exe
+C:\Users\Nhlap\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.pdb
+>>>>>>> 643c4d01b34076559e6c387a7f28c9d31d2cdf8d
