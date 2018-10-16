@@ -20,6 +20,7 @@ namespace connect4
             //out of range exception so should be checked seperately.
             //-1 for empty 1 for X and 0 for O;
             throw new NotImplementedException();
+            //xolani
 
         }
 
