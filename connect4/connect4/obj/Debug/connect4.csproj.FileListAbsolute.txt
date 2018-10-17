@@ -19,3 +19,9 @@ D:\rayne\connect4\connect4\connect4\obj\Debug\connect4.pdb
 D:\rayne\connect4\connect4\connect4\bin\Debug\connect4.exe
 D:\rayne\connect4\connect4\connect4\bin\Debug\connect4.pdb
 D:\rayne\connect4\connect4\connect4\obj\Debug\connect4.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\connect4\connect4\connect4\bin\Debug\connect4.exe.config
+C:\Users\user\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.exe
+C:\Users\user\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.pdb
+C:\Users\user\Documents\GitHub\connect4\connect4\connect4\bin\Debug\connect4.exe
+C:\Users\user\Documents\GitHub\connect4\connect4\connect4\bin\Debug\connect4.pdb
+C:\Users\user\Documents\GitHub\connect4\connect4\connect4\obj\Debug\connect4.csprojResolveAssemblyReference.cache

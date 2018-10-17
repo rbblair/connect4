@@ -15,9 +15,9 @@ namespace connect4
 	public class Game
 
     {
-		//playerInfo playerOne = new playerInfo();
-		//playerInfo playerTwo = new playerInfo();
-
+        public static string PlayerOneName = "";
+        public static string PlayerTwoName = "";
+		
 		public static char[,] Grid = new char[13, 13] 
 			{ 
 				//Rows/Columns 1, 3, 5, 7, 9, and 11 have the empty slots for player X/O)
@@ -38,6 +38,13 @@ namespace connect4
 
 		public static void Instructions()
 		{
+
+            Console.WriteLine("Please enter your name player one: ");
+            PlayerOneName = Console.ReadLine();
+
+            Console.WriteLine("Please enter your name player two: ");
+            PlayerTwoName = Console.ReadLine();
+
 			Console.WriteLine("CONNECT FOUR");
 			Console.WriteLine("To play Connect 4, you must drop a token (X or O depending on player) into the empty slots.");
 			Console.WriteLine("Whoever gets 4 in a row vertically, horizontally, or diagonally wins.");
@@ -123,11 +130,11 @@ namespace connect4
 
         }
 
-		static void PlayerTurn(int playerNum, char XO)
+		static void PlayerTurn(string playerNum, char XO)
 		{
 			int choice;
 			PrintBoard(Game.Grid);
-			Console.WriteLine("Player " + playerNum + "'s turn!");
+            Console.WriteLine("Player " + playerNum + "'s turn!");
 			Console.WriteLine("Which column would you like to put your token in? (1-6)");
 			choice = int.Parse(Console.ReadLine());
 			//while (choice < 7 || choice > 0)
@@ -226,14 +233,16 @@ namespace connect4
 		{
 			while (true)
 			{
-				PlayerTurn(1, 'O');
-				PlayerTurn(2, 'X');
+				PlayerTurn(PlayerOneName, 'O');
+				PlayerTurn(PlayerTwoName, 'X');
 			}
 			
 		}
 
 		static void Main(string[] args)
 		{
+          
+
 			Instructions();
 			PlayGame();
 			Console.ReadKey();
