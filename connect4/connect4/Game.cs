@@ -15,10 +15,13 @@ namespace connect4
 	public class Game
 
     {
+<<<<<<< HEAD
 		//playerInfo playerOne = new playerInfo();
 		//playerInfo playerTwo = new playerInfo();
         public static bool gamePlaying = true;
         public static int winner = "";
+=======
+>>>>>>> a18e1d54035152b94f7c24295f1e2650ad888d3f
 		public static char[,] Grid = new char[13, 13] 
 			{ 
 				//Rows/Columns 1, 3, 5, 7, 9, and 11 have the empty slots for player X/O)
@@ -119,11 +122,10 @@ namespace connect4
 
         }
 
-		static void PlayerTurn(int playerNum, char XO)
+		static void PlayerTurn(string playerNum, char XO)
 		{
 			int choice;
 			PrintBoard(Game.Grid);
-			Console.WriteLine("Player " + playerNum + "'s turn!");
 			Console.WriteLine("Which column would you like to put your token in? (1-6)");
 			choice = int.Parse(Console.ReadLine());
             while (choice > 6 || choice < 1)
@@ -316,8 +318,6 @@ namespace connect4
 		{
 			while (gamePlaying) //Currently runs forever for testing :)
 			{
-				PlayerTurn(1, 'O');
-				PlayerTurn(2, 'X');
 			}
 		}
 
