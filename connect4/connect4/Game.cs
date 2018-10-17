@@ -60,41 +60,58 @@ namespace connect4
 				{
 					if (i % 2 != 0)
 					{
-						if (Game.Grid[i, column] == ' ')
+						switch (column)
 						{
-							switch (column)
-							{
-								case 1:
-									Game.Grid[i, 1] = XO;
-									done = true;
-									break;
-								case 2:
-									Game.Grid[i, 3] = XO;
-									done = true;
-									break;
-								case 3:
-									Game.Grid[i, 5] = XO;
-									done = true;
-									break;
-								case 4:
-									Game.Grid[i, 7] = XO;
-									done = true;
-									break;
-								case 5:
-									Game.Grid[i, 9] = XO;
-									done = true;
-									break;
-								case 6:
-									Game.Grid[i, 11] = XO;
-									done = true;
-									break;
-								default:
-									break;
-							}
-							if (done)
-							{
+							case 1:
+                                if (Game.Grid[i, 1] == ' ')
+                                {
+                                    Game.Grid[i, 1] = XO;
+                                    done = true;
+                                    break;
+                                }
+                                else break;
+							case 2:
+                                if (Game.Grid[i, 3] == ' ')
+                                {
+                                    Game.Grid[i, 3] = XO;
+                                    done = true;
+                                    break;
+                                }
+                                else break;
+							case 3:
+                                if (Game.Grid[i, 5] == ' ')
+                                {
+                                    Game.Grid[i, 5] = XO;
+                                    done = true;
+                                    break;
+                                }
+                                else break;
+							case 4:
+                                if (Game.Grid[i, 7] == ' ')
+                                {
+                                    Game.Grid[i, 7] = XO;
+                                    done = true;
+                                    break;
+                                }
+                                else break;
+							case 5:
+                                if (Game.Grid[i, 9] == ' ')
+                                {
+                                    Game.Grid[i, 9] = XO;
+                                    done = true;
+                                    break;
+                                }
+                                else break;
+							case 6:
+                                if (Game.Grid[i, 11] == ' ')
+                                {
+                                    Game.Grid[i, 11] = XO;
+                                    done = true;
+                                    break;
+                                }
+                                else break;
+							default:
 								break;
-							}
 						}
 						if (done)
 						{
