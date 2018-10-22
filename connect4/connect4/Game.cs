@@ -15,13 +15,11 @@ namespace connect4
 	public class Game
 
     {
-<<<<<<< HEAD
 		//playerInfo playerOne = new playerInfo();
 		//playerInfo playerTwo = new playerInfo();
         public static bool gamePlaying = true;
-        public static int winner = "";
-=======
->>>>>>> a18e1d54035152b94f7c24295f1e2650ad888d3f
+		public static int winner;
+
 		public static char[,] Grid = new char[13, 13] 
 			{ 
 				//Rows/Columns 1, 3, 5, 7, 9, and 11 have the empty slots for player X/O)
@@ -55,10 +53,8 @@ namespace connect4
 			bool done = false;
 			while (!done) //While the token is not placed
 			{
-				for (int i = 11; i >= 1; i--) //Starting from bottom, check for empty slot
+				for (int i = 11; i >= 1; i-=2) //Starting from bottom, check for empty slot
 				{
-					if (i % 2 != 0) //Only check the odd numbers rows (the rows with the empty spaces)
-					{
 						switch (column) //Checks the correct box depending on the player's choice
 						{
 							case 1:
@@ -116,7 +112,6 @@ namespace connect4
 						{
 							break;
 						}
-					}
 				}
 			}
 
@@ -125,7 +120,10 @@ namespace connect4
 		static void PlayerTurn(string playerNum, char XO)
 		{
 			int choice;
+			IsthereWinner();
+			IsTie();
 			PrintBoard(Game.Grid);
+			Console.WriteLine("Player " + playerNum + "'s turn!");
 			Console.WriteLine("Which column would you like to put your token in? (1-6)");
 			choice = int.Parse(Console.ReadLine());
             while (choice > 6 || choice < 1)
@@ -141,94 +139,112 @@ namespace connect4
 
 		static void IsthereWinner()
 		{
-            int i = 5, ix = 1;
+			int i = 7, ix = 1;
 
-            if (i % 2 != 0)
-            {
-                if (ix % 2 != 0)
-                {
-                    for (i = 11; i > 6; i--) //Increments through rows
-                    {
-                        //check for horizontal winners in all rows
-                        if ((Game.Grid[i, ix] == 'X' && Game.Grid[i, ix + 2] == 'X' && Game.Grid[i, ix + 4] == 'X' && Game.Grid[i, ix + 6] == 'X')
-                                || (Game.Grid[i, ix] == 'O' && Game.Grid[i, ix + 2] == 'O' && Game.Grid[i, ix + 4] == 'O' && Game.Grid[i, ix + 6] == 'O'))
-                        {
-                            if (Game.Grid[i, ix] == 'X')
-                            {
-                                gamePlaying = false;
-                                Game.winner = 2;
-                                GameOver();
-                            }
-                            else if (Game.Grid[i, ix] == 'Y')
-                            {
-                                gamePlaying = false;
-                                Game.winner = 1;
-                                GameOver();
-                            }
-                        }
-                        for (ix = 1; ix < 6; ix++) //Increments through columns
-                        {
-                            //Checks for vertical winner in all columns
-                            if ((Game.Grid[i, ix] == 'X' && Game.Grid[i + 2, ix] == 'X' && Game.Grid[i + 4, ix] == 'X' && Game.Grid[i + 6, ix] == 'X') 
-                                || (Game.Grid[i, ix] == 'O' && Game.Grid[i + 2, ix] == 'O' && Game.Grid[i + 4, ix] == 'O' && Game.Grid[i + 6, ix] == 'O'))
-                            {
-                                if (Game.Grid[i, ix] == 'X')
-                                {
-                                    gamePlaying = false;
-                                    Game.winner = 2;
-                                    GameOver();
-                                }
-                                else if (Game.Grid[i, ix] == 'Y')
-                                {
-                                    gamePlaying = false;
-                                    Game.winner = 1;
-                                    GameOver();
-                                }
-                            }
-                            //Checks for ascending diagonal winner
-                            if ((Game.Grid[i, ix] == 'X' && Game.Grid[i + 2, ix + 2] == 'X' && Game.Grid[i + 4, ix + 4] == 'X' && Game.Grid[i + 6, ix + 6] == 'X')
-                                || (Game.Grid[i, ix] == 'O' && Game.Grid[i + 2, ix + 2] == 'O' && Game.Grid[i + 4, ix + 4] == 'O' && Game.Grid[i + 6, ix + 6] == 'O'))
-                            {
-                                if (Game.Grid[i, ix] == 'X')
-                                {
-                                    gamePlaying = false;
-                                    Game.winner = 2;
-                                    GameOver();
-                                }
-                                else if (Game.Grid[i, ix] == 'Y')
-                                {
-                                    gamePlaying = false;
-                                    Game.winner = 1;
-                                    GameOver();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+
+			for (i = 11; i > 8; i-=2) //Increments through rows
+			{
+
+				for (ix = 1; ix < 8; ix += 2) //Increments through columns
+				{
+					//check for vertical winners in all rows
+					if ((Game.Grid[i, ix] == 'X' && Game.Grid[i - 2, ix] == 'X' && Game.Grid[i - 4, ix] == 'X' && Game.Grid[i - 6, ix] == 'X')
+								|| (Game.Grid[i, ix] == 'O' && Game.Grid[i - 2, ix] == 'O' && Game.Grid[i - 4, ix] == 'O' && Game.Grid[i - 6, ix] == 'O'))
+					{
+						if (Game.Grid[i, ix] == 'X')
+						{
+							gamePlaying = false;
+							Console.WriteLine(gamePlaying);
+							Game.winner = 2;
+							GameOver();
+						}
+						if (Game.Grid[i, ix] == 'O')
+						{
+							gamePlaying = false;
+							Console.WriteLine(gamePlaying);
+							Game.winner = 1;
+							GameOver();
+						}
+					}
+					//Checks for horizontal winner in all columns
+					if ((Game.Grid[i, ix] == 'X' && Game.Grid[i, ix + 2] == 'X' && Game.Grid[i, ix + 4] == 'X' && Game.Grid[i, ix + 6] == 'X')
+							|| (Game.Grid[i, ix] == 'O' && Game.Grid[i, ix + 2] == 'O' && Game.Grid[i, ix + 4] == 'O' && Game.Grid[i, ix + 6] == 'O'))
+					{
+						if (Game.Grid[i, ix] == 'X')
+						{
+							gamePlaying = false;
+							Game.winner = 2;
+							GameOver();
+						}
+						if (Game.Grid[i, ix] == 'O')
+						{
+							gamePlaying = false;
+							Game.winner = 1;
+							GameOver();
+						}
+					}
+					//Checks for ascending diagonal winner
+					if ((Game.Grid[i, ix] == 'X' && Game.Grid[i - 2, ix + 2] == 'X' && Game.Grid[i - 4, ix + 4] == 'X' && Game.Grid[i - 6, ix + 6] == 'X')
+					|| (Game.Grid[i, ix] == 'O' && Game.Grid[i - 2, ix + 2] == 'O' && Game.Grid[i - 4, ix + 4] == 'O' && Game.Grid[i - 6, ix + 6] == 'O'))
+					{
+
+						if (Game.Grid[i, ix] == 'X')
+						{
+							gamePlaying = false;
+							Game.winner = 2;
+							GameOver();
+						}
+						else if (Game.Grid[i, ix] == 'O')
+						{
+							gamePlaying = false;
+							Game.winner = 1;
+							GameOver();
+						}
+					}
+				}
+			}
+			for (int ii = 1; ii < 6; ii+= 2) //Increments through rows
+			{
+
+				for (int iix = 1; iix < 6; iix += 2) //Increments through columns
+				{
+					if ((Game.Grid[i, iix] == 'X' && Game.Grid[ii + 2, iix + 2] == 'X' && Game.Grid[ii + 4, iix + 4] == 'X' && Game.Grid[ii + 6, iix + 6] == 'X')
+					|| (Game.Grid[ii, iix] == 'O' && Game.Grid[ii + 2, iix + 2] == 'O' && Game.Grid[ii + 4, iix + 4] == 'O' && Game.Grid[ii + 6, iix + 6] == 'O'))
+					{
+
+						if (Game.Grid[ii, iix] == 'X')
+						{
+							gamePlaying = false;
+							Game.winner = 2;
+							GameOver();
+						}
+						else if (Game.Grid[ii, iix] == 'O')
+						{
+							gamePlaying = false;
+							Game.winner = 1;
+							GameOver();
+						}
+					}
+				}
+			}
+			
 		}
+
 		public static void IsTie()
         {
-            //Tie is when there is no place for placing X nd O
+            //Tie is when there is no place for placing X and O
             //means we need to check if the last row has -1 or not
             //in main program check if tie returns true then cw("Tie Game");
             bool test = true;
-            for (int i = 1; i < 2; i++)
+            for (int i = 1; i < 12; i+=2)
             {
-                if (i % 2 != 0)
-                {
-                    for (int ix = 1; ix < 12; ix++)
+                    for (int ix = 1; ix < 12; ix+=2)
                     {
-                        if (ix % 2 != 0)
-                        {
                             if (Grid[i, ix] == ' ')
                             {
                                 test = false;
                             }
-                        }
                     }
-
-                }
             }
             if (test)
             {
@@ -238,10 +254,8 @@ namespace connect4
         }
         public static void PlayAgain()
         {
-            for (int i = 11; i > 0; i--)
+            for (int i = 11; i > 0; i-=2)
             {
-                if (i % 2 != 0)
-                {
                     for (int ix = 1; ix < 12; ix++)
                     {
                         if (ix % 2 != 0)
@@ -249,7 +263,6 @@ namespace connect4
                             Game.Grid[i, ix] = ' ';
                         }
                     }
-                }
             }
 
         }
@@ -301,7 +314,7 @@ namespace connect4
             
             Console.WriteLine("Play Again? y/n");
             choice = Console.ReadLine();
-            while (choice != "y" || choice != "n" || choice != "Y" || choice != "N")
+            while (choice != "y" && choice != "n" && choice != "Y" && choice != "N")
             {
                 Console.WriteLine("Please enter y or n.");
                 choice = Console.ReadLine();
@@ -318,6 +331,8 @@ namespace connect4
 		{
 			while (gamePlaying) //Currently runs forever for testing :)
 			{
+				PlayerTurn("1", 'O');
+				PlayerTurn("2", 'X');
 			}
 		}
 
